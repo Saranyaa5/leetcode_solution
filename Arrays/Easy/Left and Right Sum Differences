@@ -1,0 +1,35 @@
+class Solution {
+    public int[] leftRightDifference(int[] nums) {
+        // Get the length of the array
+        int n = nums.length;
+
+        // Arrays to store prefix sums on the left and suffix sums on the right
+        int[] left_sum = new int[n];
+        int[] right_sum = new int[n];
+
+        // Initialize the first element of the left sum to 0
+        left_sum[0] = 0;
+
+        // Initialize the last element of the right sum to 0
+        right_sum[n - 1] = 0;
+
+        // Calculate the prefix sum for the left side
+        for (int i = 1; i < n; i++) {
+            left_sum[i] = left_sum[i - 1] + nums[i - 1];
+        }
+
+        // Calculate the suffix sum for the right side
+        for (int j = n - 2; j >= 0; j--) {
+            right_sum[j] = right_sum[j + 1] + nums[j + 1];
+        }
+
+        // Calculate the absolute difference for each element
+        for (int i = 0; i < n; i++) {
+            nums[i] = Math.abs(left_sum[i] - right_sum[i]);
+        }
+
+        // Return the modified array with absolute differences
+        return nums;
+    }
+}
+
