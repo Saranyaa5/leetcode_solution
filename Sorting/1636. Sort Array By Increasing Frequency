@@ -1,0 +1,44 @@
+// Question https://leetcode.com/problems/sort-array-by-increasing-frequency/description/
+//java
+class Solution {
+    public int[] frequencySort(int[] nums) {
+        Map<Integer,Integer> m=new HashMap<>();
+        for(int i:nums){
+            if (m.containsKey(i)) {
+            m.put(i, m.get(i) + 1);
+        } else {
+            m.put(i, 1);
+        }
+        }
+        ArrayList<Integer> a=new ArrayList<>();
+       
+        while(m.size()!=0){
+           int value=Integer.MAX_VALUE;
+           int key=0;
+          for (Map.Entry<Integer, Integer> entry : m.entrySet()) {
+            if(entry.getValue()<value){
+            key = entry.getKey();
+            value = entry.getValue();
+            }
+            else if(entry.getValue()==value){
+                if(key>entry.getKey()){
+                    key=key;
+                }
+                else{
+                  key = entry.getKey();
+                }
+            }
+          }
+          m.remove(key);
+          for(int j=1;j<=value;j++){
+             a.add(key); 
+             System.out.print(a.get(a.size()-1)+" ") ;
+        }
+        }
+        for(int i=0;i<a.size();i++){
+            nums[i]=a.get(i);
+        } 
+       
+       return nums;
+    }
+}
