@@ -1,0 +1,18 @@
+//Question : https://leetcode.com/problems/height-checker/description/
+//java solution
+class Solution {
+    public int heightChecker(int[] heights) {
+        int newarr[]=new int[heights.length];
+        for(int i=0;i<heights.length;i++){
+            newarr[i]=heights[i];
+        }
+        Arrays.sort(newarr);
+        int c=0;
+        for(int i=0;i<heights.length;i++){
+            if(newarr[i]!=heights[i]){
+                c++;
+            }
+        }
+        return c;
+    }
+}
