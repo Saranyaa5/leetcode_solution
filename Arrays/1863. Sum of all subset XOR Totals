@@ -1,0 +1,17 @@
+// Qustion and solution link:https://leetcode.com/problems/sum-of-all-subset-xor-totals/solutions/5698943/very-simple-java-code-beats-100/
+//java code
+class Solution {
+    public int subsetXORSum(int[] nums) {
+        return backtrack(nums, 0, 0);
+    }
+    
+    public int backtrack(int[] nums, int start, int xorSum) {
+        int totalSum = xorSum;
+        
+        for (int i = start; i < nums.length; i++) {
+            totalSum += backtrack(nums, i + 1, xorSum ^ nums[i]);
+        }
+        
+        return totalSum;
+    }
+}
