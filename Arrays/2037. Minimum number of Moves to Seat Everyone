@@ -1,0 +1,13 @@
+//Question and solution link: https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/solutions/5701026/very-simple-java-code-beats-97-01/
+//java code
+class Solution {
+    public int minMovesToSeat(int[] seats, int[] students) {
+        Arrays.sort(seats);
+        Arrays.sort(students);
+        int moves=0;
+        for(int i=0;i<seats.length;i++){
+          moves+=Math.abs(students[i]-seats[i]);
+        }
+        return moves;
+    }
+}
