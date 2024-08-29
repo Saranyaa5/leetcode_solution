@@ -1,0 +1,19 @@
+// Question and solution link https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/solutions/5706933/very-simple-java-code-beats-97-45/
+// Java solution
+
+class Solution {
+    public int maxWidthOfVerticalArea(int[][] points) {
+        int a[]=new int[points.length];
+
+        for(int i=0;i<points.length;i++){
+            a[i]=points[i][0];
+        }
+        Arrays.sort(a);
+        int max=Integer.MIN_VALUE;
+        for(int i=1;i<a.length;i++){
+             max=Math.max(a[i]-a[i-1],max);
+        }
+        
+        return max;
+    }
+}
