@@ -1,4 +1,4 @@
 # leetcode_solution
-
-Find the beginner friendly java solution on each topics from leetcode.
-Find the link to problem discription and solution.
+Link to my leetcode profile link[https://leetcode.com/u/saranya77/]
+--Find the beginner-friendly java solution on each topic from leetcode.
+--Find the link to the problem description and solution.
