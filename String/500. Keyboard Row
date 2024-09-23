@@ -1,0 +1,32 @@
+//Question & Solution Link: https://leetcode.com/problems/keyboard-row/solutions/5824394/very-simple-java-solution-using-if-else/
+class Solution {
+    public String[] findWords(String[] words) {
+        String r1 = "qwertyuiop";
+        String r2 = "asdfghjkl";
+        String r3 = "zxcvbnm";
+        List<String> list = new ArrayList<>();
+         for (int i = 0; i < words.length; i++) {
+            int count1=0;
+            int count2=0;
+            int count3=0;
+            String[] a = words[i].toLowerCase().split("");
+            for (int j = 0; j < a.length; j++) {
+                if (r1.contains(a[j])) {
+                    count1++;
+                }
+                else if(r2.contains(a[j])){
+                     count2++;
+                }
+                else{
+                    count3++;
+                }
+
+            }
+            if(count1==a.length ||count2==a.length||count3==a.length){
+                list.add(words[i]);
+            }
+         }
+         return list.toArray(new String[list.size()]);
+
+    }
+}
