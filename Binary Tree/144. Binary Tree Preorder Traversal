@@ -1,0 +1,19 @@
+//Question and Solution link: https://leetcode.com/problems/binary-tree-preorder-traversal/solutions/5910083/very-simple-java-solution-beats-100/
+//java solution
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        
+        ArrayList<Integer> l=new ArrayList<>();
+       return preorder(root,l);
+    
+    }
+    public List<Integer> preorder(TreeNode root, ArrayList<Integer> l){
+       if (root != null) {
+            l.add(root.val);
+            preorder(root.left,l);
+            preorder(root.right,l);
+        }
+        return l;
+    }
+    
+}
